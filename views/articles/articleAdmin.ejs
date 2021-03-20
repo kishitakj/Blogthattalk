@@ -1,0 +1,22 @@
+<%- include("../partials/header"); -%>
+<div class="con">
+<a href="/articles/new" class="btn btn-success new-article ">New Article</a>
+<a href="/logout" class="btn btn-info new-article ">Log out</a>
+</div>
+<% articles.forEach(article =>{ %>
+    <div class="card mt-4">
+        <div class="card-body">
+            <h4 class="card-title"><%= article.title %></h4>
+            <div class="card-subtitle text-muted mb-2">
+              <%= article.createdAt.toLocaleDateString() %>
+            </div>
+            <div class="card-text mb-2"><%= article.description %></div>
+            <a href="/articles/<%= article.id %>" class="btn read-more btn-primary" >Read More</a>
+
+            <form action="/articles/<%= article.id %>?_method=DELETE" method="POST" class="d-inline">
+              <button type="submit" class="btn btn-danger"  >Delete</button>
+            </form>
+        </div>
+    </div>
+  <% }) %>
+<%- include("../partials/footer"); -%>

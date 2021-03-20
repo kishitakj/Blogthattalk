@@ -1,0 +1,143 @@
+.container::before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    background-image: url("../img/book.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    opacity: 0.676;
+  }
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: auto;
+    max-width: 90%;
+    border-radius: 30px;
+    /* border: 2px solid yellow; */
+    padding: 20px 30px;
+    margin: auto;
+    margin-top: 30px;
+    /* background: linear-gradient(to bottom right,rgba(123,45,56,0.451),rgba(45,77,123,.098) 100% 100%); */
+    box-shadow: 1px 1px 10px 2px black;
+    background-color: white;
+  }
+  .container > h1 {
+    margin: 30px;
+    font-size: 3rem;
+    font-family: "Architects Daughter", cursive;
+    color: black;
+    text-shadow: 3px 3px white;
+  }
+  #imgcont {
+    /* background: url('img-2.jpg')center center/cover no-repeat; */
+    height: auto;
+    max-width: 650px;
+    margin: auto;
+    margin-bottom: 20px;
+    /* border-radius: 10%;   */
+  }
+  #imgcont > img {
+    height: auto;
+    max-width: 100%;
+    border-radius: 20px;
+    border: 3px solid purple;
+  }
+  article {
+    padding: 1rem 3rem;
+  }
+  #text {
+    font-size: 1.2rem;
+    /* font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; */
+    text-align: justify;
+    font-family: "Balsamiq Sans", cursive;
+    line-height: 1.7rem;
+  }
+  .btn {
+    height: 40px;
+    width: 40px;
+    color: white;
+    background-color: red;
+    border-radius: 50%;
+    outline: none;
+    font-size: 20px;
+    font-family: "Redressed", cursive;
+    transition: all linear 0.3s;
+    border: 2px solid black;
+  }
+  .btn .fa {
+    font-size: 28px;
+  }
+  #play-button {
+    background-color: #ffee1d;
+    color: black;
+    cursor: pointer;
+  }
+  #play-button:hover {
+    background-color: black;
+    color: #ffee1d;
+  }
+  #stop-button {
+    background-color: #40ff1d;
+    color: black;
+    cursor: pointer;
+  }
+  #pause-button:hover {
+    background-color: white;
+    color: red;
+    cursor: pointer;
+  }
+  #stop-button:hover {
+    background-color: black;
+    color: #40ff1d;
+  }
+  
+  @media only screen and (max-width: 701px) {
+    .container > h1 {
+      font-size: 2.4rem;
+    }
+  }
+  @media only screen and (max-width: 571px) {
+    .container > h1 {
+      font-size: 2rem;
+    }
+    #text {
+      font-size: 1rem;
+    }
+    .btn {
+      height: 30px;
+      width: 30px;
+    }
+    .btn .fa {
+      font-size: 20px;
+    }
+  }
+  @media only screen and (max-width: 370px) {
+    .container {
+      padding: 10px;
+    }
+    #outtext {
+      padding: 1rem;
+    }
+    .container > h1 {
+      font-size: 1.4rem;
+    }
+    #text {
+      font-size: 0.8rem;
+    }
+    .btn {
+      height: 30px;
+      width: 30px;
+    }
+    .btn .fa {
+      font-size: 20px;
+    }
+  }
+  
