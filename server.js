@@ -1,4 +1,6 @@
-require('dotenv').config()
+if(process.env.NODE_ENV !== 'production'){
+  require('dotenv').config()
+}
 const express = require("express");
 const mongoose = require("mongoose");
 const Article = require("./models/article");
@@ -10,7 +12,6 @@ const passportLocalMongoose = require("passport-local-mongoose");
 const app = express();
 const adminuser = process.env.ADMIN
 const password = process.env.PASSWORD
-console.log(adminuser)
 app.use(
   session({
     secret: process.env.SECRET,
@@ -22,7 +23,7 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-mongoose.connect("mongodb+srv://user:"+ password +"@cluster0.eszkt.mongodb.net/blogs", {
+mongoose.connect(process.env.DATABASE_URL, {
   useUnifiedTopology: true,
   useNewUrlParser: true,
 });
