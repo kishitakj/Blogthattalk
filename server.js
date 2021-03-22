@@ -9,6 +9,7 @@ const passport = require("passport");
 const passportLocalMongoose = require("passport-local-mongoose");
 const app = express();
 const adminuser = process.env.ADMIN
+const password = process.env.PASSWORD
 console.log(adminuser)
 app.use(
   session({
@@ -21,7 +22,7 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-mongoose.connect("mongodb://localhost/blogs", {
+mongoose.connect("mongodb+srv://user:"+ password +"@cluster0.eszkt.mongodb.net/blogs", {
   useUnifiedTopology: true,
   useNewUrlParser: true,
 });
@@ -51,10 +52,7 @@ passport.deserializeUser(User.deserializeUser());
 passport.use(User.createStrategy());
 
 app.get("/", async (req, res) => {
-  const articles = await Article.find().sort({
-    createdAt: "desc",
-  });
-  res.render("index", { articles: articles });
+  res.render("index");
 });
 
 app.get("/login", (req, res) => {
