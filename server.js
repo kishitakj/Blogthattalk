@@ -12,9 +12,11 @@ const passportLocalMongoose = require("passport-local-mongoose");
 const app = express();
 const adminuser = process.env.ADMIN
 const password = process.env.PASSWORD
+const URI= "mongodb+srv://blogkj:blogkj@cluster0.yu98h.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 app.use(
   session({
-    secret: process.env.SECRET,
+    //secret: process.env.SECRET,
+    secret:'Heyitsme',
     resave: false,
     saveUninitialized: false,
   })
@@ -23,10 +25,21 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-mongoose.connect(process.env.DATABASE_URL, {
+// mongoose.connect('mongodb://localhost/test', {
+//   useUnifiedTopology: true,
+//   useNewUrlParser: true,
+// });
+
+
+mongoose.connect(URI, {
   useUnifiedTopology: true,
   useNewUrlParser: true,
-});
+  
+}).catch()
+{
+  console.log("db connected...")
+};
+
 
 mongoose.set("useCreateIndex", true);
 
